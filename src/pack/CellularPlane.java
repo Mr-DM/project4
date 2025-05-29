@@ -22,29 +22,32 @@ public class CellularPlane {
     public CellularPlane(String namePack)
     {
         _namePack = namePack;
-    }
-
-    public String PriceperMonth(int numFmin, int numFMB , int UsedDays) {
-        int UsedMIN = numFmin;
-        int UsedMB = numFMB;
-        if(_namePack.equals("Basic")){
+        if(_namePack.toLowerCase().equals("basic")){
             _numFMB = 2000;
             _numFmin = 200;
             _price = 19.90;
         }
-        else if(_namePack.equals("Premium")){
+        else if(_namePack.toLowerCase().equals("premium")){
             _numFMB = 5000;
             _numFmin = 500;
             _price = 29.90;
         }
-        else if(_namePack.equals("Unlimited")){
+        else if(_namePack.toLowerCase().equals("unlimited")){
             _numFMB = 10000;
             _numFmin = 1000;
             _price = 49.90;
         }
-        else {
-            return "Error: Invalid package name.";
-        }
+       }
+    
+
+    public String PriceperMonth(int numFmin, int numFMB){
+
+        return "";
+    }
+    public String PriceperMonth(int numFmin, int numFMB , int UsedDays) {
+        int UsedMIN = numFmin;
+        int UsedMB = numFMB;
+
         double DaysFMounth = 28.0 / UsedDays;
         double PricePerDay = _price * DaysFMounth;
 
@@ -61,7 +64,7 @@ public class CellularPlane {
 
         if(UsedMB > TempMB){
             _overFmb = UsedMB - TempMB;
-            _priceFmbOver = _overFmb * 0.3;
+            _priceFmbOver = _overFmb * 0.05;
         } else {
             _overFmb = 0;
             _priceFmbOver = 0;
