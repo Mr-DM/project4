@@ -1,7 +1,8 @@
 /* CellularPlane
  * Description:
  * version: v1.0
- * Author: Dan Morozov
+ * Author: Dan Morozov, Idan Hamias
+ * Status: Not finished
 */
 
 package pack;
@@ -19,6 +20,7 @@ public class CellularPlane {
     private double _priceFminOver;
     private double _priceFmbOver;
 
+    // the constructor of the CellularPlane class
     public CellularPlane(String namePack)
     {
         _namePack = namePack;
