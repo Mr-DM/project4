@@ -50,9 +50,26 @@ public class CellularPlane {
         }
     }
 
-    public String PriceperMonth(int numFmin, int numFMB){
+    public String PriceperMonth(int UsedMIN, int UsedMB){
+        
+        if(UsedMIN > _numFmin){
+            _overFmin = UsedMIN - _numFmin;
+            _priceFminOver = _overFmin * 0.3;
+        } else {
+            _overFmin = 0;
+            _priceFminOver = 0;
+        }
 
-        return "";
+        if(UsedMB > _numFMB){
+            _overFmb = UsedMB - _numFMB;
+            _priceFmbOver = _overFmb * 0.05;
+        } else {
+            _overFmb = 0;
+            _priceFmbOver = 0;
+        }
+        _price = _priceFminOver + _priceFmbOver + _price;
+
+        return "The price for the month is: "+ _price + "$";
     }
     public String PriceperMonth(int numFmin, int numFMB , int UsedDays) {
         int UsedMIN = numFmin;
