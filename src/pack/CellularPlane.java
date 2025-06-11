@@ -22,25 +22,33 @@ public class CellularPlane {
 
     // the constructor of the CellularPlane class
     public CellularPlane(String namePack)
-    {
+    {   
         _namePack = namePack;
-        if(_namePack.toLowerCase().equals("basic")){
+        Checker(namePack);
+       }
+    
+    public void Checker(String namePack) {
+        if(namePack.toLowerCase().equals("basic")){
             _numFMB = 2000;
             _numFmin = 200;
             _price = 19.90;
         }
-        else if(_namePack.toLowerCase().equals("premium")){
+        else if(namePack.toLowerCase().equals("premium")){
             _numFMB = 5000;
             _numFmin = 500;
             _price = 29.90;
         }
-        else if(_namePack.toLowerCase().equals("unlimited")){
+        else if(namePack.toLowerCase().equals("unlimited")){
             _numFMB = 10000;
             _numFmin = 1000;
             _price = 49.90;
+        }else{
+            _numFMB = 2000;
+            _numFmin = 200;
+            _price = 19.90;
+
         }
-       }
-    
+    }
 
     public String PriceperMonth(int numFmin, int numFMB){
 
@@ -84,7 +92,9 @@ public class CellularPlane {
         "Price per MB beyound the limit:"+_priceFmbOver+"$";
 
     }
-
+    public String getNamePack() {
+        return _namePack;
+    }
     public double getPrice() {
         return _price;
     }
@@ -93,5 +103,10 @@ public class CellularPlane {
     }
     public int getNumFMB() {
         return _numFMB;
+    }
+    
+    public void setNamePack(String namePack) {
+        _namePack = namePack;
+        Checker(namePack);
     }
 }
