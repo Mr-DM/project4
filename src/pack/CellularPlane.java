@@ -60,6 +60,25 @@ public class CellularPlane {
         {System.out.println("The Price are the same");}
     }
 
+    public String ExpensiveByPrice(CellularPlane other) {
+        if(_Price > other.getPrice()) {
+            return _NamePack + "is more expensive than " + other.getNamePack();
+        } else if (_Price < other.getPrice()) { 
+            return other.getNamePack() + "is more expensive than " + _NamePack;
+        } else {
+            return "Both plans have the same price";
+        }
+    }
+
+    public String ExpensiveByMinandMB(CellularPlane other) {
+        if(_Min > other.getMin() && _MB > other.getMB()) {
+            return _NamePack + " is more expensive than " + other.getNamePack();
+        } else if (_Min < other.getMin() && _MB < other.getMB()) {
+            return other.getNamePack() + " is more expensive than " + _NamePack;
+        } else {
+            return "Both plans have the same price";
+        }
+    }
 
     public float getPrice(){
         return _Price;
